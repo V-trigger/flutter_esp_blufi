@@ -27,6 +27,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -400,7 +401,22 @@ public class EspBlufiPlugin implements FlutterPlugin, MethodCallHandler, Activit
 
   private void disconnectGatt() {
     if (mBlufiClient != null) {
-      mBlufiClient.requestCloseConnection();
+      mBlufiClient.close();
+      mBlufiClient = null;
+    }
+    if (mDevice != null && hasBluetoothPermission()) {
+      removeBond(mDevice);
+      mDevice = null;
+    }
+    mConnected = false;
+  }
+
+  private void removeBond(BluetoothDevice device) {
+    try {
+      Method method = device.getClass().getMethod("removeBond", (Class[]) null);
+      method.invoke(device);
+    } catch (Exception e) {
+      mLog.w("removeBond failed: " + e.getMessage());
     }
   }
 

@@ -796,3 +796,23 @@ class _DeviceProvisionScreenState extends State<DeviceProvisionScreen>
 }
 
 ```
+
+BL602_BLE_DEV 是你设备上 BL602 芯片的默认蓝牙广播名。
+
+BL602 是博流（Bouffalo Lab）的 WiFi+BLE combo 芯片，你的种植机硬件用的就是这颗芯片。正常流程中它被固件配置为 YG_Planter（Stage 1）或 BLUFI_DEVICE（Stage 2），但长按重置后，芯片在固件完成初始化之前会短暂地用出厂默认名 BL602_BLE_DEV 广播。
+
+自动连接的原因和解决方案：
+
+为什么会自动连上？
+
+Stage 2 中 EspBlufi 的原生层（BlufiClient）连接设备时，操作系统会缓存这个 BLE 外设的配对/绑定信息。设备重置后用 BL602_BLE_DEV 重新广播，但底层的 MAC/UUID 没变，所以 iOS 的 CoreBluetooth（或 Android 的蓝牙栈）根据缓存自动重连了。
+
+为什么你的清理代码有时不管用？
+
+你的清理逻辑有两个盲区：
+
+_ble.connectedDevices 只返回 FBP/FRB 管理的连接 —— EspBlufi 发起的连接它不知道
+getSystemDevices 的名字过滤只匹配 "YG_Planter" 和 "BLUFI" —— BL602_BLE_DEV 不在里面
+建议修改两处：
+
+第一，在清理里加上对 BL602 的匹配：

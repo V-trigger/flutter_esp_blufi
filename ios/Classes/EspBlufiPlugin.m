@@ -131,8 +131,11 @@
 
 - (void)requestCloseConnection {
     if (_blufiClient) {
-        [_blufiClient requestCloseConnection];
+        [_blufiClient close];
+        _blufiClient = nil;
     }
+    self.device = nil;
+    self.connected = NO;
 }
 
 - (void)requestDeviceWifiScan {
