@@ -80,3 +80,117 @@ class BleCharacteristic {
   @override
   String toString() => 'BleCharacteristic($uuid)';
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+//  WiFi 配网相关模型（仅 BluFi 等支持配网的实现使用）
+// ─────────────────────────────────────────────────────────────────────────────
+
+class BleWifiNetwork {
+  final String ssid;
+  final int rssi;
+
+  const BleWifiNetwork({required this.ssid, required this.rssi});
+
+  @override
+  String toString() => 'BleWifiNetwork($ssid, rssi: $rssi)';
+}
+
+sealed class BleProvisionEvent {
+  const BleProvisionEvent();
+}
+
+/// 设备扫描到的一个 WiFi 网络。
+class BleWifiScanResultEvent extends BleProvisionEvent {
+  final BleWifiNetwork network;
+  final String address;
+
+  const BleWifiScanResultEvent({required this.network, required this.address});
+
+  @override
+  String toString() =>
+      'BleWifiScanResultEvent(${network.ssid}, rssi: ${network.rssi})';
+}
+
+/// WiFi 配网结果。
+class BleProvisionResultEvent extends BleProvisionEvent {
+  final bool success;
+  final String address;
+
+  const BleProvisionResultEvent(
+      {required this.success, required this.address});
+
+  @override
+  String toString() => 'BleProvisionResultEvent(success: $success)';
+}
+
+/// 设备状态查询结果。
+class BleDeviceStatusEvent extends BleProvisionEvent {
+  final bool wifiConnected;
+  final String address;
+
+  const BleDeviceStatusEvent(
+      {required this.wifiConnected, required this.address});
+
+  @override
+  String toString() => 'BleDeviceStatusEvent(wifiConnected: $wifiConnected)';
+}
+
+/// 自定义数据收发事件。
+class BleCustomDataEvent extends BleProvisionEvent {
+  final String data;
+
+  /// true = 收到设备发来的数据，false = 本端发送结果。
+  final bool isReceived;
+  final bool success;
+  final String address;
+
+  const BleCustomDataEvent({
+    required this.data,
+    required this.isReceived,
+    required this.success,
+    required this.address,
+  });
+
+  @override
+  String toString() =>
+      'BleCustomDataEvent(isReceived: $isReceived, success: $success, data: $data)';
+}
+
+/// GATT 就绪事件（BluFi 协议握手完成后触发）。
+class BleGattPreparedEvent extends BleProvisionEvent {
+  final bool success;
+  final String address;
+
+  const BleGattPreparedEvent({required this.success, required this.address});
+
+  @override
+  String toString() => 'BleGattPreparedEvent(success: $success)';
+}
+
+/// 安全协商结果。
+class BleNegotiateSecurityEvent extends BleProvisionEvent {
+  final bool success;
+  final String address;
+
+  const BleNegotiateSecurityEvent(
+      {required this.success, required this.address});
+
+  @override
+  String toString() => 'BleNegotiateSecurityEvent(success: $success)';
+}
+
+/// 配网流程中的错误。
+class BleProvisionErrorEvent extends BleProvisionEvent {
+  final int code;
+  final String? message;
+  final String address;
+
+  const BleProvisionErrorEvent({
+    required this.code,
+    this.message,
+    required this.address,
+  });
+
+  @override
+  String toString() => 'BleProvisionErrorEvent(code: $code, message: $message)';
+}

@@ -81,4 +81,26 @@ abstract class BleService {
     List<int> value, {
     bool withoutResponse = false,
   });
+
+  // ── WiFi 配网（仅 BluFi 等支持配网的实现提供） ──────────────────────────
+
+  /// 配网事件流（WiFi 扫描结果、配网结果、自定义数据等）。
+  Stream<BleProvisionEvent> get provisionEventStream =>
+      throw UnsupportedError('当前 BleService 实现不支持配网');
+
+  /// 请求设备扫描附近 WiFi。
+  Future<void> requestDeviceWifiScan() =>
+      throw UnsupportedError('当前 BleService 实现不支持 WiFi 扫描');
+
+  /// 向设备下发 WiFi 凭证。
+  Future<void> configProvision({String? ssid, String? password}) =>
+      throw UnsupportedError('当前 BleService 实现不支持配网');
+
+  /// 查询设备当前状态。
+  Future<void> requestDeviceStatus() =>
+      throw UnsupportedError('当前 BleService 实现不支持设备状态查询');
+
+  /// 发送自定义数据。
+  Future<void> sendCustomData({String? data}) =>
+      throw UnsupportedError('当前 BleService 实现不支持自定义数据');
 }

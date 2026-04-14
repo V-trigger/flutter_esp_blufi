@@ -2,10 +2,22 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "args",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/args-2.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
       "name": "async",
       "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/async-2.13.1",
       "packageUri": "lib/",
       "languageVersion": "3.4"
+    },
+    {
+      "name": "bluez",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/bluez-0.8.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "boolean_selector",
@@ -38,6 +50,12 @@
       "languageVersion": "3.9"
     },
     {
+      "name": "dbus",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/dbus-0.7.12",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "esp_blufi",
       "rootUri": "../../",
       "packageUri": "lib/",
@@ -50,16 +68,70 @@
       "languageVersion": "3.3"
     },
     {
+      "name": "ffi",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/ffi-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.7"
+    },
+    {
       "name": "file",
       "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/file-7.0.1",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
+      "name": "fixnum",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/fixnum-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///Users/linaria/fvm/versions/3.35.4/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.8"
+    },
+    {
+      "name": "flutter_blue_plus",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/flutter_blue_plus-2.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_blue_plus_android",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/flutter_blue_plus_android-8.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_blue_plus_darwin",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/flutter_blue_plus_darwin-8.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_blue_plus_linux",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/flutter_blue_plus_linux-8.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_blue_plus_platform_interface",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/flutter_blue_plus_platform_interface-8.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "flutter_blue_plus_web",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/flutter_blue_plus_web-8.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "flutter_blue_plus_winrt",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/flutter_blue_plus_winrt-0.0.18",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "flutter_driver",
@@ -74,8 +146,20 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "flutter_reactive_ble",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/flutter_reactive_ble-5.4.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/linaria/fvm/versions/3.35.4/packages/flutter_test",
+      "packageUri": "lib/",
+      "languageVersion": "3.8"
+    },
+    {
+      "name": "flutter_web_plugins",
+      "rootUri": "file:///Users/linaria/fvm/versions/3.35.4/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.8"
     },
@@ -84,6 +168,12 @@
       "rootUri": "file:///Users/linaria/fvm/versions/3.35.4/packages/fuchsia_remote_debug_protocol",
       "packageUri": "lib/",
       "languageVersion": "3.8"
+    },
+    {
+      "name": "functional_data",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/functional_data-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "integration_test",
@@ -140,6 +230,12 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "petitparser",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/petitparser-7.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.8"
+    },
+    {
       "name": "platform",
       "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/platform-3.1.6",
       "packageUri": "lib/",
@@ -156,6 +252,30 @@
       "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/process-5.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.5"
+    },
+    {
+      "name": "protobuf",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/protobuf-6.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.7"
+    },
+    {
+      "name": "reactive_ble_mobile",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/reactive_ble_mobile-5.4.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "reactive_ble_platform_interface",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/reactive_ble_platform_interface-5.4.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "rxdart",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/rxdart-0.28.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "sky_engine",
@@ -218,10 +338,22 @@
       "languageVersion": "3.5"
     },
     {
+      "name": "web",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/web-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "webdriver",
       "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/webdriver-3.1.0",
       "packageUri": "lib/",
       "languageVersion": "3.1"
+    },
+    {
+      "name": "xml",
+      "rootUri": "file:///Users/linaria/.pub-cache/hosted/pub.dev/xml-6.6.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.8"
     },
     {
       "name": "esp_blufi_example",
