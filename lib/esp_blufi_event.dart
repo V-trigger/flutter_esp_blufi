@@ -60,7 +60,7 @@ sealed class BlufiEvent {
             deviceAddress: value['address'] as String? ?? '',
           );
         }
-        return PairedDeviceEvent(name: '', deviceAddress: '');
+        return const PairedDeviceEvent(name: '', deviceAddress: '');
       case 'error':
         if (value is Map) {
           return ErrorEvent(
