@@ -4,12 +4,19 @@ import 'package:flutter/services.dart';
 import 'esp_blufi_event.dart';
 import 'esp_blufi_platform_interface.dart';
 
-/// An implementation of [EspBlufiPlatform] that uses method channels.
+/// 基于 MethodChannel + EventChannel 的 [EspBlufiPlatform] 实现。
+///
+/// - MethodChannel `esp_blufi`：Dart → 原生的指令调用（扫描、连接、配网等）。
+/// - EventChannel `esp_blufi/state`：原生 → Dart 的事件推送（扫描结果、连接状态、配网结果等）。
 class MethodChannelEspBlufi extends EspBlufiPlatform {
+  /// 指令通道：Dart 调用原生方法。
   @visibleForTesting
   final methodChannel = const MethodChannel('esp_blufi');
+
+  /// 事件通道：原生向 Dart 推送事件。
   final EventChannel _eventChannel = const EventChannel('esp_blufi/state');
 
+  /// 将原生推送的原始 Map 转换为类型安全的 [BlufiEvent] 广播流。
   late final Stream<BlufiEvent> _eventStream;
 
   static final MethodChannelEspBlufi _instance = MethodChannelEspBlufi._();

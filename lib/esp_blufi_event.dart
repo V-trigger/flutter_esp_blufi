@@ -1,6 +1,13 @@
+/// BluFi 事件基类（sealed class）。
+///
+/// 原生层通过 EventChannel 推送的所有事件都会被解析为 [BlufiEvent] 的具体子类。
+/// 业务层使用 `switch (event)` + pattern matching 分发处理。
 sealed class BlufiEvent {
   const BlufiEvent();
 
+  /// 将原生层推送的 Map 数据解析为对应的事件子类。
+  ///
+  /// Map 结构：`{ 'key': 事件类型, 'value': 事件数据, 'address': 设备地址 }`
   factory BlufiEvent.fromMap(Map<dynamic, dynamic> map) {
     final key = map['key'] as String?;
     final value = map['value'];
@@ -75,6 +82,7 @@ sealed class BlufiEvent {
     }
   }
 
+  /// 安全地将动态类型转为 int。
   static int _toInt(dynamic v) {
     if (v is int) return v;
     if (v is String) return int.tryParse(v) ?? 0;
@@ -83,9 +91,15 @@ sealed class BlufiEvent {
   }
 }
 
+/// BLE 扫描发现的设备。
 class BleScanResultEvent extends BlufiEvent {
+  /// 设备地址（Android: MAC, iOS: UUID）。
   final String address;
+
+  /// 设备广播名称。
   final String name;
+
+  /// 信号强度（负值，越接近 0 越强）。
   final int rssi;
 
   const BleScanResultEvent({
@@ -99,6 +113,7 @@ class BleScanResultEvent extends BlufiEvent {
       'BleScanResultEvent(address: $address, name: $name, rssi: $rssi)';
 }
 
+/// 设备扫描到的一个 WiFi 网络。
 class WifiScanResultEvent extends BlufiEvent {
   final String ssid;
   final int rssi;
@@ -114,6 +129,7 @@ class WifiScanResultEvent extends BlufiEvent {
   String toString() => 'WifiScanResultEvent(ssid: $ssid, rssi: $rssi)';
 }
 
+/// BLE 扫描已停止。
 class StopScanEvent extends BlufiEvent {
   const StopScanEvent();
 
@@ -121,6 +137,7 @@ class StopScanEvent extends BlufiEvent {
   String toString() => 'StopScanEvent()';
 }
 
+/// BLE 连接状态变化（连接 / 断开）。
 class ConnectionStateEvent extends BlufiEvent {
   final bool connected;
   final String address;
@@ -135,6 +152,7 @@ class ConnectionStateEvent extends BlufiEvent {
       'ConnectionStateEvent(connected: $connected, address: $address)';
 }
 
+/// GATT 就绪事件（BluFi 协议握手完成，可以开始配网操作）。
 class GattPreparedEvent extends BlufiEvent {
   final bool success;
   final String address;
@@ -145,6 +163,7 @@ class GattPreparedEvent extends BlufiEvent {
   String toString() => 'GattPreparedEvent(success: $success)';
 }
 
+/// DH 密钥协商结果。
 class NegotiateSecurityEvent extends BlufiEvent {
   final bool success;
   final String address;
@@ -155,6 +174,7 @@ class NegotiateSecurityEvent extends BlufiEvent {
   String toString() => 'NegotiateSecurityEvent(success: $success)';
 }
 
+/// WiFi 配网参数下发结果。
 class ConfigureResultEvent extends BlufiEvent {
   final bool success;
   final String address;
@@ -165,6 +185,7 @@ class ConfigureResultEvent extends BlufiEvent {
   String toString() => 'ConfigureResultEvent(success: $success)';
 }
 
+/// 设备状态查询结果。
 class DeviceStatusEvent extends BlufiEvent {
   final bool success;
   final String address;
@@ -175,6 +196,7 @@ class DeviceStatusEvent extends BlufiEvent {
   String toString() => 'DeviceStatusEvent(success: $success)';
 }
 
+/// 设备 WiFi 连接状态（配网后设备是否成功连上路由器）。
 class DeviceWifiConnectEvent extends BlufiEvent {
   final bool connected;
   final String address;
@@ -188,6 +210,7 @@ class DeviceWifiConnectEvent extends BlufiEvent {
   String toString() => 'DeviceWifiConnectEvent(connected: $connected)';
 }
 
+/// 设备固件版本信息。
 class DeviceVersionEvent extends BlufiEvent {
   final String version;
   final bool success;
@@ -203,6 +226,7 @@ class DeviceVersionEvent extends BlufiEvent {
   String toString() => 'DeviceVersionEvent(version: $version)';
 }
 
+/// 自定义数据发送结果。
 class PostCustomDataEvent extends BlufiEvent {
   final bool success;
   final String address;
@@ -213,7 +237,9 @@ class PostCustomDataEvent extends BlufiEvent {
   String toString() => 'PostCustomDataEvent(success: $success)';
 }
 
+/// 收到设备推送的自定义数据。
 class ReceiveCustomDataEvent extends BlufiEvent {
+  /// 设备发来的数据内容（UTF-8 字符串）。
   final String data;
   final bool success;
   final String address;
@@ -229,6 +255,7 @@ class ReceiveCustomDataEvent extends BlufiEvent {
       'ReceiveCustomDataEvent(data: $data, success: $success)';
 }
 
+/// 系统已配对的蓝牙设备（仅 Android）。
 class PairedDeviceEvent extends BlufiEvent {
   final String name;
   final String deviceAddress;
@@ -240,6 +267,7 @@ class PairedDeviceEvent extends BlufiEvent {
       'PairedDeviceEvent(name: $name, address: $deviceAddress)';
 }
 
+/// 原生层报告的错误。
 class ErrorEvent extends BlufiEvent {
   final int code;
   final String address;
@@ -251,6 +279,7 @@ class ErrorEvent extends BlufiEvent {
   String toString() => 'ErrorEvent(code: $code, message: $message)';
 }
 
+/// 未识别的事件（兜底，用于前向兼容）。
 class UnknownEvent extends BlufiEvent {
   final String key;
   final dynamic rawValue;
