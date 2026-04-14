@@ -16,7 +16,7 @@ Supports **Android** and **iOS** (physical devices only — BLE is unavailable o
 dependencies:
   esp_blufi:
     git:
-      url: https://github.com/RianOvO/esp_blufi.git
+      url: https://github.com/V-trigger/flutter_esp_blufi.git
 ```
 
 ```bash
@@ -155,7 +155,7 @@ All events are delivered through `eventStream` as typed `BlufiEvent` subclasses:
 dependencies:
   esp_blufi:
     git:
-      url: https://github.com/RianOvO/esp_blufi.git
+      url: https://github.com/V-trigger/flutter_esp_blufi.git
 ```
 
 ```bash
