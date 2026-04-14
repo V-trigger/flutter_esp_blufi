@@ -63,8 +63,6 @@
       "version": "0.1.8",
       "dependencies": [
         "flutter",
-        "flutter_blue_plus",
-        "flutter_reactive_ble",
         "plugin_platform_interface"
       ]
     },
@@ -197,31 +195,6 @@
       ]
     },
     {
-      "name": "flutter_reactive_ble",
-      "version": "5.4.2",
-      "dependencies": [
-        "collection",
-        "flutter",
-        "functional_data",
-        "meta",
-        "reactive_ble_mobile",
-        "reactive_ble_platform_interface"
-      ]
-    },
-    {
-      "name": "flutter_blue_plus",
-      "version": "2.2.1",
-      "dependencies": [
-        "flutter",
-        "flutter_blue_plus_android",
-        "flutter_blue_plus_darwin",
-        "flutter_blue_plus_linux",
-        "flutter_blue_plus_platform_interface",
-        "flutter_blue_plus_web",
-        "flutter_blue_plus_winrt"
-      ]
-    },
-    {
       "name": "sky_engine",
       "version": "0.0.0",
       "dependencies": []
@@ -323,77 +296,6 @@
       ]
     },
     {
-      "name": "reactive_ble_platform_interface",
-      "version": "5.4.2",
-      "dependencies": [
-        "collection",
-        "flutter",
-        "functional_data",
-        "meta",
-        "plugin_platform_interface"
-      ]
-    },
-    {
-      "name": "reactive_ble_mobile",
-      "version": "5.4.2",
-      "dependencies": [
-        "flutter",
-        "protobuf",
-        "reactive_ble_platform_interface"
-      ]
-    },
-    {
-      "name": "functional_data",
-      "version": "1.2.0",
-      "dependencies": [
-        "collection",
-        "meta"
-      ]
-    },
-    {
-      "name": "flutter_blue_plus_web",
-      "version": "8.2.1",
-      "dependencies": [
-        "flutter",
-        "flutter_blue_plus_platform_interface",
-        "flutter_web_plugins",
-        "web"
-      ]
-    },
-    {
-      "name": "flutter_blue_plus_platform_interface",
-      "version": "8.2.1",
-      "dependencies": [
-        "flutter"
-      ]
-    },
-    {
-      "name": "flutter_blue_plus_linux",
-      "version": "8.2.1",
-      "dependencies": [
-        "bluez",
-        "flutter",
-        "flutter_blue_plus_platform_interface",
-        "rxdart"
-      ]
-    },
-    {
-      "name": "flutter_blue_plus_darwin",
-      "version": "8.2.1",
-      "dependencies": [
-        "flutter",
-        "flutter_blue_plus_platform_interface"
-      ]
-    },
-    {
-      "name": "flutter_blue_plus_android",
-      "version": "8.2.1",
-      "dependencies": [
-        "flutter",
-        "flutter_blue_plus_platform_interface"
-      ]
-    },
-    {
       "name": "sync_http",
       "version": "0.3.1",
       "dependencies": []
@@ -408,92 +310,9 @@
       ]
     },
     {
-      "name": "protobuf",
-      "version": "6.0.0",
-      "dependencies": [
-        "collection",
-        "fixnum",
-        "meta"
-      ]
-    },
-    {
-      "name": "flutter_web_plugins",
-      "version": "0.0.0",
-      "dependencies": [
-        "flutter"
-      ]
-    },
-    {
       "name": "platform",
       "version": "3.1.6",
       "dependencies": []
-    },
-    {
-      "name": "fixnum",
-      "version": "1.1.1",
-      "dependencies": []
-    },
-    {
-      "name": "web",
-      "version": "1.1.1",
-      "dependencies": []
-    },
-    {
-      "name": "bluez",
-      "version": "0.8.3",
-      "dependencies": [
-        "dbus"
-      ]
-    },
-    {
-      "name": "dbus",
-      "version": "0.7.12",
-      "dependencies": [
-        "args",
-        "ffi",
-        "meta",
-        "xml"
-      ]
-    },
-    {
-      "name": "ffi",
-      "version": "2.2.0",
-      "dependencies": []
-    },
-    {
-      "name": "xml",
-      "version": "6.6.1",
-      "dependencies": [
-        "collection",
-        "meta",
-        "petitparser"
-      ]
-    },
-    {
-      "name": "petitparser",
-      "version": "7.0.2",
-      "dependencies": [
-        "collection",
-        "meta"
-      ]
-    },
-    {
-      "name": "rxdart",
-      "version": "0.28.0",
-      "dependencies": []
-    },
-    {
-      "name": "args",
-      "version": "2.7.0",
-      "dependencies": []
-    },
-    {
-      "name": "flutter_blue_plus_winrt",
-      "version": "0.0.18",
-      "dependencies": [
-        "flutter",
-        "flutter_blue_plus_platform_interface"
-      ]
     }
   ],
   "configVersion": 1

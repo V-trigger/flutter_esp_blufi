@@ -21,19 +21,9 @@ public final class GeneratedPluginRegistrant {
       Log.e(TAG, "Error registering plugin esp_blufi, yu.legend.esp_blufi.EspBlufiPlugin", e);
     }
     try {
-      flutterEngine.getPlugins().add(new com.lib.flutter_blue_plus.FlutterBluePlusPlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin flutter_blue_plus_android, com.lib.flutter_blue_plus.FlutterBluePlusPlugin", e);
-    }
-    try {
       flutterEngine.getPlugins().add(new dev.flutter.plugins.integration_test.IntegrationTestPlugin());
     } catch (Exception e) {
       Log.e(TAG, "Error registering plugin integration_test, dev.flutter.plugins.integration_test.IntegrationTestPlugin", e);
-    }
-    try {
-      flutterEngine.getPlugins().add(new com.signify.hue.flutterreactiveble.ReactiveBlePlugin());
-    } catch (Exception e) {
-      Log.e(TAG, "Error registering plugin reactive_ble_mobile, com.signify.hue.flutterreactiveble.ReactiveBlePlugin", e);
     }
   }
 }
